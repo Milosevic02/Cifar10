@@ -45,3 +45,4 @@ x = Dense(K,activation='softmax')(x)
 
 model = Model(i,x)
 
+model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
