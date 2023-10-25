@@ -53,3 +53,13 @@ train_generator = data_generator.flow(x_train,y_train,batch_size)
 steps_per_epoch = x_train.shape[0] // batch_size
 
 r = model.fit(train_generator, validation_data=(x_test, y_test), steps_per_epoch=steps_per_epoch, epochs=50)
+
+plt.plot(r.history['loss'], label='loss')
+plt.plot(r.history['val_loss'], label='val_loss')
+plt.legend()
+plt.show()
+
+plt.plot(r.history['accuracy'], label='acc')
+plt.plot(r.history['val_accuracy'], label='val_acc')
+plt.legend()
+plt.show()
