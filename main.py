@@ -106,3 +106,21 @@ def plot_confusion_matrix(cm, classes,
 p_test = model.predict(x_test).argmax(axis=1)
 cm = confusion_matrix(y_test, p_test)
 plot_confusion_matrix(cm, list(range(10)))
+
+
+labels = '''airplane
+automobile
+bird
+cat
+deer
+dog
+frog
+horse
+ship
+truck'''.split()
+
+misclassified_idx = np.where(p_test != y_test)[0]
+i = np.random.choice(misclassified_idx)
+plt.imshow(x_test[i], cmap='gray')
+plt.title("True label: %s Predicted: %s" % (labels[y_test[i]], labels[p_test[i]]))
+plt.show()
